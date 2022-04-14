@@ -9,7 +9,11 @@
     {{ end }}
     {{ with .Site.Params.footer }}
         <div class="container text-center">
+        {{ with .html }}
+            {{ . | safeHTML }}
+        {{ else }}
             <a href="{{ .url | absURL }}" title="{{ .text }}"><small>{{ .text }}</small></a>
+        {{ end }}
         </div>
     {{ end }}
 </div>
